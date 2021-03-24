@@ -2,14 +2,14 @@ import React from 'react';
 import Image from '../Image';
 import './styles.css';
 
-function Tile(props) {
+const Tile = (props) => {
     const { flight_number, mission_name, launch_year, launch_success, links, mission_id } = props;
     return (
         <div className="tile">
             <Image {...links} alt={mission_name}/>
 
             <div className="copyWrapper">
-                <h4>{mission_name}</h4>
+                <h4>{`${mission_name} #${flight_number}`}</h4>
                 <p><label>Mission Ids: </label>
                     <span>
                         { mission_id.length > 0 && 

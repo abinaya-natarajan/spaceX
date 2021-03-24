@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-function Column(props) {
+const Column = (props) => {
     const { tablet, desktop } = props;
     return (
         <div className={

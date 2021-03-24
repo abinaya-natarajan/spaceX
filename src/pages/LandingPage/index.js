@@ -7,7 +7,7 @@ import Column from '../../components/Column';
 import './styles.css';
 
 
-function LandingPage() {
+const LandingPage = () => {
     const [data, setData] = useState([]);
     const [launchYear, setLaunchYear] = useState('');
     const [launchSuccess, setLaunchSuccess] = useState('');
@@ -28,6 +28,9 @@ function LandingPage() {
         fetch(url)
         .then(response => response.json())
         .then(result =>  setData(result))
+        .catch((error)=> {
+            console.log(error);
+        })
     }, [launchYear, launchSuccess, landSuccess]);
 
     const onHandleFilter = (section, label) => {
@@ -53,6 +56,10 @@ function LandingPage() {
                     </Column>
                 </Row>
             </div>
+            <footer>
+                <b>Developed by:</b>
+                <span>Abinaya Natarajan</span>
+            </footer>
         </div>
     );
 }

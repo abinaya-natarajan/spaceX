@@ -4,7 +4,8 @@ import Row from '../Row';
 import Column from '../Column';
 import './styles.css';
 
-function TileWrapper(props) {
+
+const TileWrapper = (props) => {
     const { tilesData } = props;
     
     return (

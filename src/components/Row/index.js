@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-function Row(props) {
+const Row = (props) => {
     return (
         <div className="rowContainer">
             {props.children}

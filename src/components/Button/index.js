@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-function Button(props) {
+const Button = (props) => {
     const { label, onclick, type, name } = props;
 
 

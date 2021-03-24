@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-function Image(props) {
+const Image = (props) => {
     const { mission_patch_small, alt } = props;
     return (
         <div className="imageContainer">
