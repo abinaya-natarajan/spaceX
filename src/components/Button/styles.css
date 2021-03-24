@@ -1,0 +1,30 @@
+.buttonContainer {
+    width: 50%;
+    padding-top: 10px;
+}
+
+.buttonContainer .btn {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #C5E09B;
+    cursor: pointer;
+}
+
+.buttonWrap {
+    display: inline-block;
+    position: relative;
+}
+
+.buttonWrap input[type=checkbox] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+} 
+
+.buttonWrap input:checked ~ button {
+    background-color: #7CBA00;
+}

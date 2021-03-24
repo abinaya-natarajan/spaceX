@@ -1,0 +1,34 @@
+.tile {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.tile .imageContainer {
+    background-color: #ccc;
+}
+
+.copyWrapper {
+    padding: 10px 0px 5px;
+}
+
+.copyWrapper h4 {
+    color: #6D75AB;
+}
+
+.copyWrapper p span {
+    color: #6D75AB;
+}
+
+.copyWrapper ul {
+    margin-left: 50px;
+}
+
+.copyWrapper p {
+    padding-bottom: 5px;
+}
+
+.copyWrapper p label {
+    font-weight: bold;
+}
+
