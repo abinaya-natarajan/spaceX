@@ -4,11 +4,10 @@
 
 .tileWrapperContainer .columnContainer {
     padding: 0px 5px 13px;
-}
 
-
-@media only screen and (min-width: 1024px) {
-    .tileWrapperContainer .columnContainer {
+    @media only screen and (min-width: 1024px) {
         display: flex;
     }
 }
+
+

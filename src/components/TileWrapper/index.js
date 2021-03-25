@@ -2,7 +2,7 @@ import React from 'react';
 import Tile from '../Tile';
 import Row from '../Row';
 import Column from '../Column';
-import './styles.css';
+import './styles.scss';
 
 
 const TileWrapper = (props) => {

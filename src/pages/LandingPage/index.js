@@ -1,19 +1,24 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import SectionHeader from '../../components/SectionHeader';
 import Filter from '../../components/FilterContainer';
 import TileWrapper from '../../components/TileWrapper';
 import Row from '../../components/Row';
 import Column from '../../components/Column';
+import {FilterContext} from '../../context/FilterContext';
 import './styles.css';
 
 
 const LandingPage = () => {
     const [data, setData] = useState([]);
-    const [launchYear, setLaunchYear] = useState('');
-    const [launchSuccess, setLaunchSuccess] = useState('');
-    const [landSuccess, setLandSuccess] = useState('');
+    const [loading, setLoading] = useState(true);
+    const { launchYear,
+        launchSuccess,
+        landSuccess
+     } = useContext(FilterContext);
+
 
     useEffect(function() {
+        setLoading(true);
         let url = 'https://api.spacexdata.com/v3/launches?limit=100';
         if(launchYear) {
             url = url + '&launch_year=' + launchYear;
@@ -27,21 +32,16 @@ const LandingPage = () => {
 
         fetch(url)
         .then(response => response.json())
-        .then(result =>  setData(result))
+        .then(result =>  {
+            setData(result);
+            setLoading(false);
+        })
         .catch((error)=> {
             console.log(error);
+            setLoading(false);
         })
     }, [launchYear, launchSuccess, landSuccess]);
 
-    const onHandleFilter = (section, label) => {
-        if(section === 'year') {
-            setLaunchYear(label);
-        } else if (section === 'launch') {
-            setLaunchSuccess(label);
-        } else {
-            setLandSuccess(label);
-        }
-    }
     
     return (
         <div className="landingPageContainer">
@@ -49,10 +49,12 @@ const LandingPage = () => {
             <div className="contentWrapper">
                 <Row>
                     <Column tablet={3} desktop={2}>
-                        <Filter filterChange={onHandleFilter} />
+                        <Filter/>
                     </Column>
                     <Column tablet={9} desktop={10}>
-                        <TileWrapper tilesData={data}/>
+                        {(!loading && data.length > 0) && <TileWrapper tilesData={data}/> }
+                        {(!loading && data.length === 0) && <p className="noResult">No Result Found</p>}
+                        {(loading) && <p className="loading">Loading....</p>}
                     </Column>
                 </Row>
             </div>
